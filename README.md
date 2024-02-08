@@ -1,4 +1,4 @@
-[![Release](https://img.shields.io/github/v/release/Flioris/MAuth?label=Release)](https://github.com/Flioris/MAuth/releases)
+[![GitHub Release](https://img.shields.io/github/v/release/Flioris/MAuth)](https://github.com/Flioris/MAuth/releases)
 # MAuth
 > I always welcome criticism and suggestions for improvement! [Discord support server](https://discord.gg/AZSZ8nhtra).
 
