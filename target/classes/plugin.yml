@@ -1,0 +1,10 @@
+name: MAuth
+version: '1.0'
+main: maxmeitner.mauth.MAuth
+author: Flioris
+api-version: '1.13'
+commands:
+  mauth:
+    usage: "/mauth"
+    aliases:
+      - ma
