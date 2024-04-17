@@ -1,6 +1,6 @@
 name: MAuth
 version: '${project.version}'
-main: maxmeitner.mauth.MAuth
+main: flioris.mauth.MAuth
 author: Flioris
 api-version: '1.13'
 commands:

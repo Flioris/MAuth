@@ -9,13 +9,16 @@ MySQL:
 discord:
   bot-token: ""
   guild-id: ""
-  role-id: ""
+  issuing-verified-role: true
+  verified-role-id: ""
   playing: ""
   emoji: "✅"
+  whitelisted-role-ids: []
 
 messages:
   reloaded: "&7[&#a4ff67&l⚠&7] &fThe plugin has been reloaded."
   no-permission: "&7[&#a4ff67&l⚠&7] &fYou don't have permission to do this."
+  not-whitelisted-role: "&7[&#a4ff67&l⚠&7] &fYou cannot log in to the server because you do not have the required role on the discord server."
   command-for-player: "&7[&#a4ff67&l⚠&7] &fThis command is for players."
   account-not-linked: |
     &7[&#a4ff67&l⚠&7] &fPlease link your discord account with the command &7/mauth set <account_id>&f.
@@ -26,7 +29,7 @@ messages:
   success-auth: "&7[&#a4ff67&l✉&7] &fYou have successfully logged in!"
   success-account-unlinked: "&7[&#a4ff67&l✉&7] &fYou have successfully unlinked your account!"
   account-already-linked: "&7[&#a4ff67&l✉&7] &fYou have already linked your account! To unlink it, type /mauth del"
-  account-limit-per-ip: "&&7[#a4ff67&l⚠&7] &fYou cannot authorize more than one account from the same IP."
+  account-limit-per-ip: "&7[&#a4ff67&l⚠&7] &fYou cannot authorize more than one account from the same IP."
   account-busy: "&7[&#a4ff67&l⚠&7] &fThis discord is already linked to another player."
   player-account: "&7[&#a4ff67&l✉&7] &f{player} Discord: {id}."
   player-account-not-linked: "&7[&#a4ff67&l⚠&7] &fThe player has not linked his account."
@@ -53,3 +56,12 @@ embeds:
   confirm-unlink-desc: "To confirm **unlinking** your account, click on the checkmark."
   confirm-account-desc: "To confirm the **linking** of your account, click on the checkmark."
   confirm-join-desc: "To confirm **login** to the server, click on the checkmark."
+
+spawn:
+  enabled: false
+  world: world
+  x: 0.0
+  y: 0.0
+  z: 0.0
+  yaw: 0.0
+  pitch: 0.0
