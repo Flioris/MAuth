@@ -17,8 +17,10 @@
  * along with this program. If not, see <https://www.gnu.org/licenses/>.
  */
 
-package flioris.mauth;
+package flioris.mauth.command;
 
+import flioris.mauth.Bot;
+import flioris.mauth.MAuth;
 import flioris.mauth.db.Core;
 import flioris.mauth.util.ConfigHandler;
 import org.bukkit.command.Command;
@@ -31,7 +33,7 @@ import org.bukkit.plugin.Plugin;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Commands implements CommandExecutor, TabCompleter {
+public class MainCommand implements CommandExecutor, TabCompleter {
     private static final Plugin plugin = MAuth.getPlugin();
     private static final Core core = MAuth.getCore();
 
@@ -76,7 +78,6 @@ public class Commands implements CommandExecutor, TabCompleter {
             if (sender.hasPermission("mauth.remwl")) {
                 strings.add("remwl");
             }
-
         } else if (args.length == 2) {
             switch (args[0]) {
                 case "set", "getById" -> strings.add("id");
@@ -118,13 +119,26 @@ public class Commands implements CommandExecutor, TabCompleter {
             return;
         }
 
+        String id = args[1];
+
+        try {
+            Long.parseLong(id);
+        } catch (NumberFormatException e) {
+            id = Bot.getIdByNameId(id);
+        }
+
+        if (id == null) {
+            player.sendMessage(ConfigHandler.improve("messages.invalid-account"));
+            return;
+        }
+
         if (core.getAccount(player.getName()) == null) {
-            if (core.getAccountByID(args[1]) != null) {
+            if (core.getAccountByID(id) != null) {
                 player.sendMessage(ConfigHandler.improve("messages.account-busy"));
-            } else if (!Bot.hasWhitelistedRole(args[1])) {
+            } else if (!Bot.hasWhitelistedRole(id)) {
                 player.sendMessage(ConfigHandler.improve("messages.not-whitelisted-role"));
             } else {
-                Bot.sendConfirmAccount(args[1], player);
+                Bot.sendConfirmAccount(id, player);
             }
         } else {
             player.sendMessage(ConfigHandler.improve("messages.account-already-linked"));

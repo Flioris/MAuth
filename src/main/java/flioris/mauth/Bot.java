@@ -78,11 +78,16 @@ public class Bot {
             plugin.getLogger().severe("Failed to start discord bot.");
         }
 
-        mainGuild = jda.getGuildById(ConfigHandler.getString("discord.guild-id"));
-        verifiedRole = ConfigHandler.getBoolean("issuing-verified-role") ?
-                mainGuild.getRoleById(ConfigHandler.getString("discord.verified-role-id")) : null;
         emoji = Emoji.fromUnicode(ConfigHandler.getString("discord.emoji"));
+        mainGuild = jda.getGuildById(ConfigHandler.getString("discord.guild-id"));
+        verifiedRole = ConfigHandler.getBoolean("discord.issuing-verified-role") ?
+                mainGuild.getRoleById(ConfigHandler.getString("discord.verified-role-id")) : null;
+    }
 
+    public static String getIdByNameId(String nameId) {
+        List<Member> members = getMainGuild().findMembers(m -> nameId.equals(m.getUser().getName())).get();
+
+        return members.isEmpty() ? null : members.get(0).getId();
     }
 
     public static void processMessageReaction(User user, String messageId) {

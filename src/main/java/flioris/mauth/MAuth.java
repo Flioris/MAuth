@@ -19,6 +19,7 @@
 
 package flioris.mauth;
 
+import flioris.mauth.command.MainCommand;
 import flioris.mauth.util.ConfigHandler;
 import lombok.Getter;
 import flioris.mauth.db.Core;
@@ -106,7 +107,7 @@ public final class MAuth extends JavaPlugin {
     private void registerCommands() {
         PluginCommand mainCommand = getCommand("mauth");
 
-        mainCommand.setExecutor(new Commands());
-        mainCommand.setTabCompleter(new Commands());
+        mainCommand.setExecutor(new MainCommand());
+        mainCommand.setTabCompleter(new MainCommand());
     }
 }
