@@ -6,7 +6,7 @@
 **Minecraft plugin for easy authorization using your discord bot.** When connecting, the player will receive a message asking him to link his discord account using a command. After the player registers the command, the bot sends him a confirmation message via PM. The plugin also contains a command for unlinking an account, a command for displaying a Minecraft or Discord account using a Discord ID or nickname in Minecraft, limits and sessions that are no longer valid when the IP is changed. The plugin has a GNU GPL license.
 
 ## How to use
-**Required:** Java 17+ and Bukkit-like core 1.13+.\
+**Required:** Java 8+ and Bukkit-like core 1.13+.\
 **Installation and configuration instructions:**
 1. Download [MAuth.jar](https://github.com/Flioris/MAuth/releases).
 2. Place it in the plugins folder of your minecraft server.
