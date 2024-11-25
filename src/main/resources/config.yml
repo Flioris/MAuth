@@ -9,7 +9,7 @@ MySQL:
 discord:
   bot-token: ""
   guild-id: ""
-  issuing-verified-role: true
+  issuing-verified-role: false
   verified-role-id: ""
   playing: ""
   emoji: "✅"
@@ -21,9 +21,9 @@ messages:
   not-whitelisted-role: "&7[&#a4ff67&l⚠&7] &fYou cannot log in to the server because you do not have the required role on the discord server."
   command-for-player: "&7[&#a4ff67&l⚠&7] &fThis command is for players."
   account-not-linked: |
-    &7[&#a4ff67&l⚠&7] &fPlease link your discord account with the command &7/mauth set <account_id>&f.
+    &7[&#a4ff67&l⚠&7] &fPlease link your discord account with the command &7/mauth set <Discord ID/NameID>&f.
     &7[&#a4ff67&l⚠&7] &fTo log in you need to be on the servers with our bot.
-  invalid-account: "&7[&#a4ff67&l⚠&7] &fThis is not your discord account ID."
+  invalid-account: "&7[&#a4ff67&l⚠&7] &fThis is not your discord account ID/NameID."
   pm-is-closed: "&7[&#a4ff67&l⚠&7] &fYour PM is closed or you are not on the discord servers with our bot. The bot cannot write to you."
   confirm-message-sent: "&7[&#a4ff67&l✉&7] &fA confirmation message has been sent to you via PM."
   success-auth: "&7[&#a4ff67&l✉&7] &fYou have successfully logged in!"
@@ -39,16 +39,16 @@ messages:
   unwhitelisted: "&7[&#a4ff67&l✉&7] &fYou have removed {ip} from the whitelist."
   help: |
     &7[&#a4ff67&l?&7] &f&lPlugin help:
-    &7/mauth set <account_id> &f- Link your discord account.
+    &7/mauth set <Discord ID/NameID> &f- Link your discord account.
     &7/mauth del &f- Unlink your discord account.
-    &7/mauth get <player> &f- Get the player's discord.
-    &7/mauth getById <account_id> &f- Get a player by discord ID.
-    &7/mauth addwl <ip> &f- Allow registering more than 1 account.
-    &7/mauth remwl <ip> &f- Again prohibit registering more than 1 account.
+    &7/mauth get <Player> &f- Get the player's discord.
+    &7/mauth getById <Discord ID> &f- Get a player by discord ID.
+    &7/mauth addwl <IP> &f- Allow registering more than 1 account.
+    &7/mauth remwl <IP> &f- Again prohibit registering more than 1 account.
 
 titles:
   account-not-linked-title: "&f&l» &#a4ff67&lM&#7fff95&lA&#60ffbd&lu&#55ffde&lt&#67fff6&lh &f&l«"
-  account-not-linked-subtitle: "&fLink your discord account using &7/mauth set <account_id>"
+  account-not-linked-subtitle: "&fLink your discord account using &7/mauth set <Discord ID/NameID>"
   confirm-join-title: "&f&l» &#a4ff67&lM&#7fff95&lA&#60ffbd&lu&#55ffde&lt&#67fff6&lh &f&l«"
   confirm-join-subtitle: "&fPlease confirm your login."
 

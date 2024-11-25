@@ -42,7 +42,22 @@ public class PlayerListener implements Listener {
         String playerIp = player.getAddress().getHostString();
         String account = core.getAccount(playerName);
 
-        if (account != null) {
+        if (ConfigHandler.getBoolean("spawn.enabled") && !player.hasPlayedBefore()) {
+            player.teleport(ConfigHandler.getLocation("spawn"));
+        }
+
+        if (account == null) {
+            if (core.getSessionByIP(playerIp) == null || core.isWhiteListed(playerIp)) {
+                BlockedUsersCache.add(playerName);
+                player.sendMessage(ConfigHandler.improve("messages.account-not-linked"));
+                player.sendTitle(
+                        ConfigHandler.improve("titles.account-not-linked-title"),
+                        ConfigHandler.improve("titles.account-not-linked-subtitle"),
+                        50, 100, 50);
+            } else {
+                player.kickPlayer(ConfigHandler.improve("messages.account-limit-per-ip"));
+            }
+        } else {
             String session = core.getSession(playerName);
             if (!Bot.hasWhitelistedRole(account)) {
                 player.kickPlayer(ConfigHandler.improve("messages.not-whitelisted-role"));
@@ -63,20 +78,6 @@ public class PlayerListener implements Listener {
                         50, 100, 50);
             } else {
                 Bukkit.getPluginManager().callEvent(new SuccessAuthEvent(player));
-            }
-        } else {
-            if (core.getSessionByIP(playerIp) == null || core.isWhiteListed(playerIp)) {
-                if (ConfigHandler.getBoolean("spawn.enabled")) {
-                    player.teleport(ConfigHandler.getLocation("spawn"));
-                }
-                BlockedUsersCache.add(playerName);
-                player.sendMessage(ConfigHandler.improve("messages.account-not-linked"));
-                player.sendTitle(
-                        ConfigHandler.improve("titles.account-not-linked-title"),
-                        ConfigHandler.improve("titles.account-not-linked-subtitle"),
-                        50, 100, 50);
-            } else {
-                player.kickPlayer(ConfigHandler.improve("messages.account-limit-per-ip"));
             }
         }
     }

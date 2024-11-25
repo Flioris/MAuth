@@ -38,7 +38,7 @@ public class Core {
                         ConfigHandler.getString("MySQL.user"),
                         ConfigHandler.getString("MySQL.password")
                 ) :
-                new SQLiteDatabase(new File(MAuth.getPlugin().getDataFolder().getPath() + "\\mauth.db").getAbsolutePath());
+                new SQLiteDatabase(new File(MAuth.getPlugin().getDataFolder().getPath() + "/mauth.db").getAbsolutePath());
     }
 
     public String getAccount(String playerName) {
